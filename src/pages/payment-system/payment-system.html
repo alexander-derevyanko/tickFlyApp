@@ -1,0 +1,39 @@
+<!--
+  Generated template for the PaymentSystemPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title class="tick-title">{{paymentSystem}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div class="tick-wrapper tf-post-label">
+    <ion-list class="tick-no-border">
+      <ion-item>
+        <ion-label stacked>Номер карты</ion-label>
+        <ion-input type="number" name="cardNumber" [(ngModel)]="cardNumber" minlength="16" maxlength="16"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Срок действия карты</ion-label>
+        <ion-datetime displayFormat="MM/YYYY" name="expYear" min="2017" max="2030" [(ngModel)]="expMonthAndYear"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>CVC</ion-label>
+        <ion-input type="number" name="cvc" [(ngModel)]="cvc" minlength="3" maxlength="3"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-buttons text-right>
+      <button ion-button color="danger" margin-bottom (click)="onClickPay()" [disabled]="cardNumber === undefined || expMonthAndYear === undefined || cvc === undefined">
+        {{'Оплатить ' + amount + ' ' + code}}
+      </button>
+    </ion-buttons>
+  </div>
+</ion-content>

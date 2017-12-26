@@ -1,6 +1,6 @@
 <ion-header>
 
-  <ion-navbar color="danger">
+  <ion-navbar>
     <ion-title>
       <img src="assets/images/logo.png" alt="TickFly">
     </ion-title>
@@ -9,27 +9,36 @@
 </ion-header>
 
 
-<ion-content padding>
-  <div class="enter-block" padding>
-    <h4>регистрация</h4>
-    <ion-list>
+<ion-content>
+  <div class="tick-wrapper">
+    <div class="tick-diamond"></div>
+    <div class="enter-block tf-post-label" padding>
+      <form (ngSubmit)="onSignup(f)" #f="ngForm">
+        <h4>регистрация</h4>
+        <hr class="tick-hr">
+        <ion-list>
 
-      <ion-item margin-bottom>
-        <ion-input type="text" placeholder="Логин"></ion-input>
-      </ion-item>
-      <ion-item margin-bottom>
-        <ion-input type="email" placeholder="Email"></ion-input>
-      </ion-item>
-      <ion-item margin-bottom>
-        <ion-input type="password" placeholder="Пароль"></ion-input>
-      </ion-item>
-      <ion-item margin-bottom>
-        <ion-input type="text" placeholder="Повторите пароль"></ion-input>
-      </ion-item>
+          <ion-item margin-bottom>
+            <ion-label stacked>Никнейм</ion-label>
+            <ion-input type="text" name="nickname" [ngModel]="nickname"></ion-input>
+          </ion-item>
+          <ion-item margin-bottom>
+            <ion-label stacked>Email</ion-label>
+            <ion-input type="email" name="email" [ngModel]="email"></ion-input>
+          </ion-item>
+          <ion-item margin-bottom>
+            <ion-label stacked>Пароль</ion-label>
+            <ion-input type="password" name="password" [ngModel]="password"></ion-input>
+          </ion-item>
+          <!--<ion-item margin-bottom>-->
+            <!--<ion-input type="password" placeholder="Повторите пароль" [ngModel]="repeatPassword"></ion-input>-->
+            <!--</ion-item>-->
 
-    </ion-list>
-    <ion-buttons text-center>
-      <button ion-button color="danger">зарегистрировать</button>
-    </ion-buttons>
-  </div>
-</ion-content>
+          </ion-list>
+          <ion-buttons text-center>
+            <button ion-button text-capitalize small color="main-entry-button">Зарегистрироваться</button>
+          </ion-buttons>
+        </form>
+      </div>
+    </div>
+  </ion-content>

@@ -1,0 +1,50 @@
+<!--
+  Generated template for the CreatePostPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <header-main [messages]="true" [search]="true" [createPost]="false" [menu]="true">
+      <ion-title class="tick-title">Создать пост</ion-title>
+    </header-main>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="tick-wrapper enter-block tf-post-label" padding>
+
+    <form (ngSubmit)="onCreatePost(f)" #f="ngForm">
+      <ion-list class="tick-no-border">
+
+        <ion-item>
+          <ion-label stacked>Название поста</ion-label>
+          <ion-input type="text" name="title" [ngModel]="title"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label stacked>Описание</ion-label>
+          <ion-textarea type="text" name="description" [ngModel]="description"></ion-textarea>
+        </ion-item>
+        <ion-item>
+          <ion-label stacked>Категории</ion-label>
+          <ion-select placeholder="Выбрать" name="selectedCategories" [(ngModel)]="selectedCategories" (ionChange)="onChange(selectedCategories)"
+            multiple="true">
+            <ion-option *ngFor="let category of categories" (ionSelect)="onChange()" value="{{category.id_category}}">
+              {{category.title}}
+            </ion-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label stacked>Теги</ion-label>
+          <ion-input type="text" (keypress)="_keyPress($event)" name="tags" [ngModel]="description"></ion-input>
+        </ion-item>
+        <multi-image-upload></multi-image-upload>
+      </ion-list>
+      <ion-buttons text-right>
+        <button ion-button color="danger">Создать</button>
+      </ion-buttons>
+    </form>
+  </div>
+
+</ion-content>

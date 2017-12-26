@@ -1,0 +1,30 @@
+
+  <ion-navbar>
+    <ng-content>
+    </ng-content>
+
+    <ion-buttons end>
+      <button
+        *ngIf="search"
+        ion-button icon-end (click)="onSearchPage()">
+        <ion-icon name="search"></ion-icon>
+      </button>
+      <button
+        *ngIf="createPost"
+        ion-button icon-end (click)="onCreatePostPage()">
+        <ion-icon name="md-create"></ion-icon>
+      </button>
+      <button
+        *ngIf="messages"
+        ion-button icon-end (click)="onChatsListPage()">
+        <ion-icon name="mail">{{unreadMessages}}</ion-icon>
+      </button>
+      <button
+        *ngIf="menu"
+        class="slide-menu" ion-button menuToggle icon-end>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+

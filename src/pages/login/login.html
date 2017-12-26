@@ -1,43 +1,55 @@
 <ion-header>
 
-  <ion-navbar color="danger">
+  <ion-navbar hideBackButton>
     <ion-title>
       <img src="assets/images/logo.png" alt="TickFly">
     </ion-title>
     <ion-buttons (click)="onRegisterPage()" end>
-      <button ion-button icon-end>
+      <button ion-button icon-end text-capitalize>
         Зарегистрироваться
         <ion-icon name="arrow-round-forward"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
-
 </ion-header>
 
 
-<ion-content padding>
-  <div class="enter-block" padding>
-    <h4>вход</h4>
-    <ion-list>
+<ion-content>
+  <div class="tick-wrapper">
+    <div class="tick-diamond"></div>
+    <div class="enter-block tf-post-label" padding>
+      <form (ngSubmit)="onSignin(f)" #f="ngForm">
+        <h4>вход</h4>
+        <hr class="tick-hr">
+        <ion-list>
 
-      <ion-item>
-        <ion-input type="text" placeholder="Логин"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input type="password" placeholder="Пароль"></ion-input>
-      </ion-item>
+          <ion-item>
+            <ion-label stacked>Email</ion-label>
+            <ion-input type="email" name="email" [ngModel]="email"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label stacked>Пароль</ion-label>
+            <ion-input type="password" name="password" [ngModel]="password"></ion-input>
+          </ion-item>
 
-    </ion-list>
-    <ion-buttons text-center>
-      <button ion-button color="danger">Войти</button>
-    </ion-buttons>
-  </div>
+        </ion-list>
+        <ion-buttons text-center>
+          <button ion-button small color="main-entry-button" type="submit">Войти</button>
+        </ion-buttons>
+      </form>
+    </div>
 
-  <div class="enter-block" padding>
-    <h4>войти с помощью</h4>
-    <ion-buttons>
-      <button ion-button color="primary" block margin-bottom>Facebook</button>
-      <button ion-button color="danger" block>Google+</button>
-    </ion-buttons>
+    <div class="enter-block" padding>
+      <h4>Войти с помощью</h4>
+      <hr class="tick-hr">
+      <ion-buttons class="tick-buttons-wrap">
+        <button ion-button color="facebook" block margin-bottom text-capitalize (click)="signinFacebook()">Facebook</button>
+        <button ion-button color="google-plus" text-capitalize   block (click)="signinGoogle()">Google+</button>
+      </ion-buttons>
+    </div>
+
+    <ion-card *ngIf="userData">
+      <ion-card-header>{{ userData.username }}</ion-card-header>
+    </ion-card>
   </div>
 </ion-content>

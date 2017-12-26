@@ -1,0 +1,61 @@
+<!--
+  Generated template for the ShopPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header>
+  <ion-navbar>
+    <header-main [messages]="true" [search]="true" [createPost]="true" [menu]="true">
+      <ion-title class="tick-title">Магазин тиков</ion-title>
+    </header-main>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <div class="tick-wrapper">
+    <div>
+      <ion-segment [(ngModel)]="payment">
+        <ion-segment-button value="input">
+          Ввод
+        </ion-segment-button>
+        <ion-segment-button value="withdraw">
+          Вывод
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+
+    <div class="tf-post-label" [ngSwitch]="payment">
+      <ion-list class="tick-no-border" *ngSwitchCase="'input'">
+        <ion-item>
+          <ion-label stacked>Выберите пакет тиков</ion-label>
+          <ion-select placeholder="Выбрать" name="selectedPackage" [(ngModel)]="selectedPackage">
+            <ion-option *ngFor="let package of packageList" value="{{package.cost}}" multiple="false">
+              {{package.amount_ticks.amount + ' тиков за ' + package.cost + ' ' + code}}
+            </ion-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label stacked>Выберите cистему оплаты</ion-label>
+          <ion-select placeholder="Выбрать" name="selectedPaymentSystem" [(ngModel)]="selectedPaymentSystem" multiple="false">
+            <ion-option *ngFor="let paymentSystem of paymentSystems" value="{{paymentSystem.title}}">
+              {{paymentSystem.title}}
+            </ion-option>
+          </ion-select>
+        </ion-item>
+        <ion-buttons text-right>
+          <button ion-button color="danger" (click)="onPaymentSystemPage(code, selectedPackage, selectedPaymentSystem)" [disabled]="selectedPackage === undefined || selectedPaymentSystem === undefined">Продолжить</button>
+        </ion-buttons>
+      </ion-list>
+
+      <ion-list *ngSwitchCase="'withdraw'">
+        <ion-item>
+          <h2>Вывод</h2>
+        </ion-item>
+      </ion-list>
+    </div>
+  </div>
+</ion-content>

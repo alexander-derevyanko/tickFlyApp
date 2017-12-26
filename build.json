@@ -1,0 +1,18 @@
+{
+  "android": {
+    "release": {
+      "keystore": "tickfly_release.keystore",
+      "storePassword": "123456",
+      "alias": "tickfly_release",
+      "password" : "123456",
+      "keystoreType": ""
+    },
+    "debug": {
+      "keystore": "tickfly_debug.keystore",
+      "storePassword": "123456",
+      "alias": "tickfly_debug",
+      "password" : "123456",
+      "keystoreType": ""
+    }
+  }
+}

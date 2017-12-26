@@ -1,14 +1,23 @@
 <ion-menu [content]="content">
   <ion-header>
     <ion-toolbar>
-      <ion-title>Menu</ion-title>
+      <ion-title class="tick-title">Меню</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <ion-content>
-    <ion-list>
+    <ion-list no-lines>
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
         {{p.title}}
+      </button>
+      <button menuClose ion-item (click)="onChatPage()">
+        Сообщения ({{newMessages}})
+      </button>
+      <button menuClose ion-item (click)="onUserProfile(userId)">
+        Профиль
+      </button>
+      <button ion-item (click)="logout()">
+        Выйти
       </button>
     </ion-list>
   </ion-content>

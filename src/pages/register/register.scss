@@ -1,21 +1,49 @@
 page-register {
   ion-content {
-    background: url("../assets/images/login_bg.jpg") no-repeat center;
-    background-size: cover;
-    .enter-block {
-      h4 {
-        margin-bottom: 30px;
-        font-weight: 400;
-        text-transform: uppercase;
-        color: #fff;
-        border-bottom: 2px solid #fff;
-      }
-      ion-buttons {
-        margin-top: 30px;
-      }
+   background-color: #d85a5d!important;
+   .enter-block {
+    h4 {
+      margin-bottom: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: #fff;
+      font-size: 16px;
     }
-    .item {
-      background-color: transparent;
+    ion-buttons {
+      margin-top: 30px;
     }
   }
+  .item {
+    background-color: transparent;
+  }
+  .tf-post-label {
+    ion-item {
+      width: 80%;
+      margin: 0 auto;
+      padding: 0;
+      border-top: 0!important;
+      .item-inner {
+        padding: 0!important;
+      }
+    }
+    .input-wrapper {
+      ion-label {
+       color: #fff;
+     }
+     input {
+      padding: 5px;
+      width: 100%!important;
+      margin: 8px 0px 4px 0px;
+      background-color: #fff!important;
+    }
+  }
+}
+}
+@media only screen and ( min-width: 650px ) {
+  .tick-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
 }

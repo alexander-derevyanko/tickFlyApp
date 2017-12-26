@@ -1,0 +1,93 @@
+<!--
+  Generated template for the UserProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <header-main
+      [messages]="true"
+      [search]="true"
+      [createPost]="true"
+      [menu]="true">
+      <ion-title class="tick-title">Профиль</ion-title>
+    </header-main>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <div class="tick-wrapper">
+    <ion-item class="top-userprofile no-padding">
+      <ion-avatar item-start>
+        <img class="chat-avatar" src="{{user?.avatar}}">
+      </ion-avatar>
+      <div class="top-userprofile-info">
+        <h2 text-wrap>{{user?.nick_name}}</h2>
+        <ion-buttons *ngIf="!isPublic" end>
+          <button class="more-icon" icon-end (click)="showAlertUserEdit()">
+            <ion-icon name="more"></ion-icon>
+          </button>
+        </ion-buttons>
+      </div>
+      <button ion-button *ngIf="isPublic && isSubscribe" color="light"
+      (click)="onToggleSubscribe(userId); ">
+        Отписаться
+      </button>
+      <button ion-button *ngIf="isPublic && !isSubscribe"
+    (click)="onToggleSubscribe(userId) ;" color="danger">
+        Подписаться
+      </button>
+    </ion-item>
+<ion-item text-wrap class="top-userprofile-status">
+      <p>
+    {{user?.status}}
+      </p>
+</ion-item>
+    <ion-item class="no-padding">
+      <ion-grid>
+        <ion-row class="user-indicators" *ngIf="!isPublic; else publicProfile" text-center>
+          <ion-col col-3>
+            <h3>{{user?.posts_count}}</h3>
+            <p>публикации</p>
+          </ion-col>
+          <ion-col col-3 (click)="onFollowersPage(userId)">
+            <h3>{{followersCount}}</h3>
+            <p>подписчики</p>
+          </ion-col>
+          <ion-col col-3 (click)="onFollowedPage(userId)">
+            <h3>{{user?.followed_count}}</h3>
+            <p>подписки</p>
+          </ion-col>
+          <ion-col col-3>
+            <h3>{{user?.balance.amount}}</h3>
+            <p>тики</p>
+          </ion-col>
+        </ion-row>
+        <ng-template #publicProfile>
+          <ion-row class="user-indicators-public" text-center>
+            <ion-col col-4>
+              <h3>{{user?.posts_count}}</h3>
+              <p>публикации</p>
+            </ion-col>
+            <ion-col col-4 (click)="onFollowersPage(userId)">
+              <h3>{{followersCount}}</h3>
+              <p>подписчики</p>
+            </ion-col>
+            <ion-col col-4 (click)="onFollowedPage(userId)">
+              <h3>{{user?.followed_count}}</h3>
+              <p>подписки</p>
+            </ion-col>
+          </ion-row>
+        </ng-template>
+      </ion-grid>
+    </ion-item>
+
+    <post-preview [userId]="userId" [publicProfile]="public" [posts]="posts"></post-preview>
+
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </div>
+</ion-content>

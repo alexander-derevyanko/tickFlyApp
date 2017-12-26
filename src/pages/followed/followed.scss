@@ -1,0 +1,13 @@
+page-followed {
+	button {
+		.item-inner {
+			background-image: none!important;
+			ion-label {
+				margin: 1px;
+			}
+		}
+		&:last-child {
+			border: 0!important;
+		}
+	}
+}

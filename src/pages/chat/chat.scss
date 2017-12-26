@@ -1,0 +1,131 @@
+page-chat {
+  .tick-header-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 0 15px;
+  }
+  .message-time {
+    display: block;
+    color: #333;
+    font-size: 8.5px;
+    font-weight: bold;
+  }
+  .message-content {
+    border-radius: 40px;
+    margin: 5px 0;
+    position: relative;
+    padding: 6px 17px 3px 15px;
+    p {
+      margin: 0;
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+  }
+  .message-right {
+    justify-content: flex-end;
+    display: flex;
+    .message-content {
+    background-color: #dadada;
+    margin-left: 40px;
+    color: #333;
+    }
+    .message-time {
+      text-align: right;
+    }
+  }
+  .message-left {
+    justify-content: flex-start;
+    display: flex;
+    .message-content {
+      background-color: transparent;
+    margin-right: 40px;
+    border: 0.5px solid rgba(0, 0, 0, 0.2);
+    }
+    .message-time {
+      text-align: left;
+    }
+  }
+  .item-md,
+  .item-ios {
+    &.item-block {
+      .item-inner {
+        border-bottom: none;
+      }
+    }
+  }
+  .ion-post-date {
+    color: #a9a9a9;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  ion-slides {
+    height: auto;
+  }
+  .comments-item {
+    border-bottom: 1px solid #eaeaea;
+    &-desription {
+      display: flex;
+      flex-direction: column;
+    }
+    &-some {
+      margin: 10px 0;
+    }
+  }
+  ion-toolbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  .toolbar-background {
+    background-color: #c24849;
+  }
+  .message-form {
+    display: flex;
+    flex-direction: row;
+    .message-form-input {
+      background-color: #c24849;
+      padding: 6px;
+      margin: 0;
+    }
+    .comment-form-button {
+      background-color: #c24849;
+      color: #fff;
+      font-size: 20px;
+      padding: 10px;
+    }
+    textarea {
+      background-color: #fff;
+      margin: 0;
+      padding: 2px 4px;
+      width: 100%;
+      resize: none;
+    }
+  }
+  .date {
+    font-size: 10px;
+    color: #9e9e9e;
+  }
+  .tags {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 0;
+    list-style: none;
+    .tag {
+      color: $secondary-blue;
+      background-color: #fff;
+    }
+  }
+  .buttons-wrap {
+    button {
+      padding: 0 7px;
+      font-size: 19px;
+      color: #808080;
+    }
+  } // .tick-wrapper {
+  //   margin-bottom: 4rem;
+  // }
+}

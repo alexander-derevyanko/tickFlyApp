@@ -5,15 +5,14 @@ page-login {
     }
   }
   ion-content {
-    background: url("../assets/images/login_bg.jpg") no-repeat center;
-    background-size: cover;
+    background-color: #d85a5d!important;
     .enter-block {
       h4 {
-        margin-bottom: 30px;
-        font-weight: 400;
+        margin-bottom: 10px;
+        font-weight: 600;
         text-transform: uppercase;
         color: #fff;
-        border-bottom: 2px solid #fff;
+        font-size: 16px;
       }
     }
     .item {
@@ -23,8 +22,34 @@ page-login {
   ion-title {
     width: 130px;
   }
+  .tf-post-label {
+    ion-item {
+      width: 80%;
+      margin: 0 auto;
+      padding: 0;
+      border-top: 0!important;
+      .item-inner {
+        padding: 0!important;
+      }
+    }
+    .input-wrapper {
+      ion-label {
+       color: #fff;
+     }
+     input {
+      padding: 5px;
+      width: 100%!important;
+      margin: 8px 0px 4px 0px;
+      background-color: #fff!important;
+    }
+  }
 }
 
+.tick-buttons-wrap {
+  margin-top: 25px!important;
+  width: 80%;
+  margin: 0 auto;
+}
 .platform-ios {
   page-login {
     ion-navbar {
@@ -42,4 +67,13 @@ page-login {
       font-size: 14px;
     }
   }
+}
+@media only screen and ( min-width: 768px ) {
+  .tick-wrapper {
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
 }

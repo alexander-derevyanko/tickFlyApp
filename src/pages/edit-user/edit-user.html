@@ -1,0 +1,73 @@
+<!--
+  Generated template for the EditUserPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title class="tick-title">Редактирование профиля</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div class="tick-wrapper">
+    <div class="enter-block tf-post-label" padding>
+      <ion-avatar item-start (click)="presentActionSheet()">
+        <img src="{{pathForImage(lastImage)}}" style="width: 100%; height: 100%;" [hidden]="lastImage === null">
+      </ion-avatar>
+      <div [hidden]="lastImage !== null">
+        <ion-avatar item-start (click)="presentActionSheet()">
+          <img class="chat-avatar" src="{{user?.avatar}}">
+        </ion-avatar>
+        <p>Сменить аватар</p>
+      </div>
+      <!--<ion-buttons>-->
+        <!--<button ion-button icon-center (click)="uploadImage()" [disabled]="lastImage === null">-->
+          <!--<ion-icon name="cloud-upload"></ion-icon>-->
+          <!--Изменить аватар-->
+        <!--</button>-->
+      <!--</ion-buttons>-->
+      <form (ngSubmit)="onChangeUser(f)" #f="ngForm">
+
+        <ion-list class="tick-no-border">
+          <ion-item>
+            <ion-label stacked>Никнейм</ion-label>
+            <ion-input type="text" name="nick_name" value="{{user?.nick_name}}" [ngModel]="nickname"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label stacked>Имя</ion-label>
+            <ion-input type="text" name="first_name" value="{{user?.first_name}}" [ngModel]="firstname"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label stacked>Фамилия</ion-label>
+            <ion-input type="text" name="last_name" value="{{user?.last_name}}" [ngModel]="lastname"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label stacked>Статус</ion-label>
+            <ion-textarea type="text" name="status" value="{{user?.status}}" [ngModel]="status">
+            </ion-textarea>
+          </ion-item>
+
+        </ion-list>
+
+
+        <ion-buttons text-right>
+          <button ion-button color="danger" margin-bottom>Сохранить</button>
+        </ion-buttons>
+
+        <div>
+          {{options}}
+        </div>
+        <div>
+
+          {{debugText}}
+        </div>
+
+      </form>
+    </div>
+  </div>
+</ion-content>

@@ -2,5 +2,8 @@
   "name": "tickFlyApp",
   "app_id": "",
   "type": "ionic-angular",
-  "integrations": {}
+  "integrations": {
+    "cordova": {}
+  },
+  "gcm_key": "MY_KEY"
 }
